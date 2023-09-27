@@ -1,32 +1,36 @@
 {
-    "theme_color": "#1F1F1F",
-    "background_color": "#1F1F1F",
-    "display": "fullscreen",
-    "scope": "/",
-    "start_url": "/",
-    "name": "BaresPWA",
-    "short_name": "BarApp",
-    "description": "Search your Bar ",
-    "icons": [
-        {
-            "src": "/icon-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/icon-256x256.png",
-            "sizes": "256x256",
-            "type": "image/png"
-        },
-        {
-            "src": "/icon-384x384.png",
-            "sizes": "384x384",
-            "type": "image/png"
-        },
-        {
-            "src": "/icon-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ]
+  "lang": "es",
+  "theme_color": "#1F1F1F",
+  "background_color": "#1F1F1F",
+  "categories": ["bares", "bebidas", "lifestyle"],
+  "display_override": ["standalone", "fullscreen"],
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "name": "Bares Uruguay",
+  "short_name": "BarApp",
+  "description": "Apps de Busqueda de Bar",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
