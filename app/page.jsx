@@ -19,6 +19,10 @@ export default function Home() {
       installPrompt && setInstProm(event);
       installButton.removeAttribute("hidden");
     });
+    window.addEventListener("appinstalled", () => {
+      console.log("Thank you for installing our app!");
+      alert("APP INSTALO");
+    });
     // installButton.addEventListener("click", async () => {
     //   if (!installPrompt) {
     //     return;
