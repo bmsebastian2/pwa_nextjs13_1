@@ -4,36 +4,52 @@ import styles from "./page.module.css";
 
 export default function Home() {
   const [isReadeyForInstall, setIsReadyForInstall] = useState(false);
+  const [instPromt, setInstProm] = useState();
 
   useEffect(() => {
     console.log("cargado useeffect");
 
-    window.addEventListener("beforeinstallprompt ", (event) => {
+    let installPrompt = null;
+    const installButton = document.querySelector("#install");
+
+    window.addEventListener("beforeinstallprompt", (event) => {
       event.preventDefault();
-      console.log(`👍 BeforeInstallPromptEvent , ${event}`);
-      window.deferredPrompt = event;
-      setIsReadyForInstall(true);
+      installPrompt = event;
+      installPrompt && setIsReadyForInstall(true);
+      installPrompt && setInstProm(event);
+      installButton.removeAttribute("hidden");
     });
+    // installButton.addEventListener("click", async () => {
+    //   if (!installPrompt) {
+    //     return;
+    //   }
+    //   const result = await installPrompt.prompt();
+    //   console.log(`Install prompt was: ${result.outcome}`);
+    //   installPrompt = null;
+    //   installButton.setAttribute("hidden", "");
+    // });
   }, []);
 
-  async function dowloadApp() {
-    console.log('first');
-    
-    const promtEvent = window.deferredPrompt;
-    if (promtEvent) {
-      promtEvent.prompt();
-      const result = await promtEvent.userChoice;
-      window.deferredPrompt = null;
+  async function clickPwa() {
+    if (!instPromt) {
+      return;
     }
+    const result = await instPromt.prompt();
+    //  console.log(`Install prompt was: ${result.outcome}`);
+    //  instPromt = null;
+    setInstProm(null);
+    setIsReadyForInstall(false);
   }
 
   return (
     <main className={styles.main}>
       <div className="container">
         <h1>APP BARES😎</h1>
-        {isReadeyForInstall && <button>Instalar</button>}
       </div>
-      <button onClick={dowloadApp}>instalar 2</button>
+      <button id="install" hidden>
+        Install
+      </button>
+      {isReadeyForInstall && <button onClick={() => clickPwa()}>app</button>}
     </main>
   );
 }
