@@ -10,14 +10,14 @@ export default function Home() {
     console.log("cargado useeffect");
 
     let installPrompt = null;
-    const installButton = document.querySelector("#install");
+    //const installButton = document.querySelector("#install");
 
     window.addEventListener("beforeinstallprompt", (event) => {
       event.preventDefault();
       installPrompt = event;
-      installPrompt && setIsReadyForInstall(true);
-      installPrompt && setInstProm(event);
-      installButton.removeAttribute("hidden");
+      //installPrompt && setIsReadyForInstall(true);
+      installPrompt && setInstProm(installPrompt);
+      //installButton.removeAttribute("hidden");
     });
     window.addEventListener("appinstalled", () => {
       console.log("Thank you for installing our app!");
@@ -54,6 +54,7 @@ export default function Home() {
         Install
       </button>
       {isReadeyForInstall && <button onClick={() => clickPwa()}>app</button>}
+      
     </main>
   );
 }

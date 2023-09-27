@@ -1,16 +1,16 @@
 {
-  "lang": "es",
-  "theme_color": "#1F1F1F",
-  "background_color": "#1F1F1F",
-  "categories": ["bares", "bebidas", "lifestyle"],
-  "display_override": ["standalone", "fullscreen"],
+  "theme_color": "#0A0A24",
+  "background_color": "#0A0A24",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "Bares Uruguay",
   "short_name": "BarApp",
-  "description": "Apps de Busqueda de Bar",
+  "name": "App de Bares  ",
+  "description": "App para Buscar bares ",
+  "lang": "es",
   "dir": "ltr",
+  "categories": ["bares", "bebidas", "lifestyle"],
+  "display_override": ["standalone", "fullscreen"],
   "icons": [
     {
       "src": "/icon-192x192.png",
