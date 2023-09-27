@@ -1,6 +1,5 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { Metadata } from "next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -19,7 +18,7 @@ export default function RootLayout({ children }) {
         content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
       />
       <link rel="apple-touch-icon" href="/icons/touch-icon-iphone.png" />
-      <link
+      {/* <link
         rel="apple-touch-icon"
         sizes="152x152"
         href="/icons/touch-icon-ipad.png"
@@ -33,7 +32,7 @@ export default function RootLayout({ children }) {
         rel="apple-touch-icon"
         sizes="167x167"
         href="/icons/touch-icon-ipad-retina.png"
-      />
+      /> */}
 
       <link
         rel="icon"
