@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import styles from "./page.module.css";
 
 export default function Home() {
   const [isReadeyForInstall, setIsReadyForInstall] = useState(false);
@@ -10,28 +9,19 @@ export default function Home() {
     console.log("cargado useeffect");
 
     let installPrompt = null;
-    //const installButton = document.querySelector("#install");
+  const installButton = document.querySelector("#install");
 
     window.addEventListener("beforeinstallprompt", (event) => {
       event.preventDefault();
       installPrompt = event;
-      //installPrompt && setIsReadyForInstall(true);
+      installPrompt && setIsReadyForInstall(true);
       installPrompt && setInstProm(installPrompt);
-      //installButton.removeAttribute("hidden");
+      installButton.removeAttribute("hidden");
     });
     window.addEventListener("appinstalled", () => {
       console.log("Thank you for installing our app!");
       alert("APP INSTALO");
     });
-    // installButton.addEventListener("click", async () => {
-    //   if (!installPrompt) {
-    //     return;
-    //   }
-    //   const result = await installPrompt.prompt();
-    //   console.log(`Install prompt was: ${result.outcome}`);
-    //   installPrompt = null;
-    //   installButton.setAttribute("hidden", "");
-    // });
   }, []);
 
   async function clickPwa() {
@@ -39,14 +29,13 @@ export default function Home() {
       return;
     }
     const result = await instPromt.prompt();
-    //  console.log(`Install prompt was: ${result.outcome}`);
-    //  instPromt = null;
+
     setInstProm(null);
     setIsReadyForInstall(false);
   }
 
   return (
-    <main className={styles.main}>
+    <main>
       <div className="container">
         <h1>APP BARES😎</h1>
       </div>
@@ -54,7 +43,6 @@ export default function Home() {
         Install
       </button>
       {isReadeyForInstall && <button onClick={() => clickPwa()}>app</button>}
-      
     </main>
   );
 }
